@@ -31,4 +31,16 @@ export class ClickUpController {
     embed.setDescription(commandsString);
     return { embeds: [embed] };
   }
+
+  /**
+   * Choose the workspace for this server.
+   * @param interaction Input command
+   */
+  public async selectWorkspace(interaction: Command.ChatInputCommandInteraction): Promise<void> {
+    // @ts-ignore: HasServer precondition checks if guild is null
+    const serverId: string = interaction.guild.id;
+    // Get available workspaces
+    // @ts-ignore: HasServer precondition confirms server exists
+    await this.servers.get(serverId).selectWorkspace(interaction);
+  }
 }
