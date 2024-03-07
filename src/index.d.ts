@@ -8,7 +8,7 @@ declare module "@sapphire/framework" {
 
 declare module "@sapphire/pieces" {
   interface Container {
-    player: ClickUpController;
+    controller: ClickUpController;
   }
 }
 
