@@ -1,8 +1,6 @@
 declare module "@sapphire/framework" {
   interface Preconditions {
-    InVoiceChannel: never;
     HasServer: never;
-    IsPlaying: never;
   }
 }
 
