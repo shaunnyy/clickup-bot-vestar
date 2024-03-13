@@ -1,32 +1,17 @@
 import axios from "axios";
+import { ClickUpObject } from "./ClickUpObject";
+import { Space } from "./Space";
 
 /**
  * Class to handle actions performed on a Workspace.
  * It also provides static methods for interacting with the ClickUp API
  * to receive instances of itself.
  */
-export class Workspace {
-  private id: number = 0;
-  private name: string = "";
-  private color: string = "";
-  private avatar: string | null = null;
-  private members: Array<any> = Array<any>();
-
-  /**
-   * Get the id of this workspace.
-   * @returns The workspace id
-   */
-  public getId(): number {
-    return this.id;
-  }
-
-  /**
-   * Get the name of this workspace.
-   * @returns The workspace name
-   */
-  public getName(): string {
-    return this.name;
-  }
+export class Workspace extends ClickUpObject {
+  protected color: string = "";
+  protected avatar: string | null = null;
+  protected members: Array<any> = Array<any>();
+  protected spaces: Array<Space> = Array<Space>();
 
   /**
    * Get the array of members in this workspace.
@@ -84,5 +69,17 @@ export class Workspace {
         console.log(error);
       });
     return workspaces;
+  }
+
+  /**
+   * Return all Spaces in this workspace.
+   * @returns Array of Space instances
+   */
+  public async getSpaces(): Promise<Array<Space>> {
+    if (!this.spaces.length) {
+      // If spaces array has not already been populated then retrieve from api
+      this.spaces = await Space.all(this.id);
+    }
+    return this.spaces;
   }
 }
