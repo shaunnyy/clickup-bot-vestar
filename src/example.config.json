@@ -1,6 +1,6 @@
 {
-  "token": "DISCORD_TOKEN",
-  "clientId": "DISCORD_CLIENT_ID",
-  "clickupToken": "CLICKUP_API_TOKEN",
+  "token": "MTMyNDMwOTQyNTIyMTE0MDQ5MQ.GSux71.-Da0dW54HQ84uvmYoffjJr6E35-7Vm7I-u842c",
+  "clientId": "1324309425221140491",
+  "clickupToken": "SKY0LELQ5PFF3KTRC57LJPL7VDUM04XPVUTWZA6HZ4480K296U7C66XVZHP2KM06",
   "clickupEndpoint": "https://api.clickup.com/api/v2/"
 }
